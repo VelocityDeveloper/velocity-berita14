@@ -1,4 +1,4 @@
-Velocity Berita 9
+Velocity Berita 14
 =================
 
 Child Theme for the Velocity System WP Berita.
