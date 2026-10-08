@@ -15,22 +15,15 @@ if (!defined('ABSPATH')) {
 define('VELOCITY_BERITA14_WARNA', '#740106');
 
 /**
- * Slot iklan (sama dengan versi Kirki): id => [label, keterangan ukuran]. Slot tanpa gambar tidak tampil.
+ * Slot iklan yang dipanggil template (slot versi Kirki lain tidak pernah tampil, jadi tidak ditampilkan
+ * di Customizer): id => [label, keterangan ukuran]. Slot tanpa gambar tidak tampil.
  * Ukuran "WxH" di keterangan dibaca installer untuk membuat banner "Ruang Iklan" seukuran slot.
  */
 function velocity_berita14_slot_iklan()
 {
     return array(
-        'iklan_header'       => array('Iklan Header', 'Iklan Halaman Depan 728x90'),
-        'iklan_home_1'       => array('Iklan Home 1', 'Iklan Halaman Depan 310x350'),
-        'iklan_home_2'       => array('Iklan Home 2', 'Iklan Halaman Depan 300x250'),
-        'iklan_home_3'       => array('Iklan Home 3', 'Iklan Halaman Depan 300x250'),
-        'iklan_home_bawah_1' => array('Iklan Home Bawah 1', 'Iklan Halaman Depan Bawah 600x80'),
-        'iklan_home_bawah_2' => array('Iklan Home Bawah 2', 'Iklan Halaman Depan Bawah 600x80'),
-        'iklan_content'      => array('Iklan Single', 'Iklan Single post 600x80'),
-        'iklan_content_2'    => array('Iklan Single 2', 'Iklan Single post 300x250'),
-        'iklan_archive'      => array('Iklan Archive', 'Iklan Arsip post 600x60'),
-        'iklan_archive_2'    => array('Iklan Archive 2', 'Iklan Arsip post 600x60'),
+        'iklan_header'  => array('Iklan Header', 'Iklan Header 728x90'),
+        'iklan_content' => array('Iklan Single', 'Iklan Single post 600x80'),
     );
 }
 
