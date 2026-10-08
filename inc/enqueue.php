@@ -28,7 +28,7 @@ if (!function_exists('justg_child_enqueue_parent_style')) {
         );
 
         $css_version = $theme->parent()->get('Version') . '.' . filemtime(get_stylesheet_directory() . '/css/custom.css');
-        wp_enqueue_style('flickity-style', 'https://unpkg.com/flickity@2/dist/flickity.min.css', $css_version);
+        wp_enqueue_style('flickity-style', 'https://unpkg.com/flickity@2.3.0/dist/flickity.min.css', $css_version);
         wp_enqueue_style(
             'custom-style',
             get_stylesheet_directory_uri() . '/css/custom.css',
@@ -44,7 +44,7 @@ if (!function_exists('justg_child_enqueue_parent_style')) {
         );
 
         $js_version = $theme->parent()->get('Version') . '.' . filemtime(get_stylesheet_directory() . '/js/custom.js');
-        wp_enqueue_script('flickity-scripts', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', array(), $js_version, true);
+        wp_enqueue_script('flickity-scripts', 'https://unpkg.com/flickity@2.3.0/dist/flickity.pkgd.min.js', array(), $js_version, true);
         wp_enqueue_script('justg-custom-scripts', get_stylesheet_directory_uri() . '/js/custom.js', array(), $js_version, true);
     }
     add_action('wp_enqueue_scripts', 'justg_child_enqueue_parent_style');

@@ -56,7 +56,7 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                                 <?php
                                                 if (has_post_thumbnail()) {
                                                     $img_atr = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
-                                                    echo '<img class="w-100" src="' . $img_atr[0] . '" alt="' . get_the_title() . '" loading="lazy">';
+                                                    echo '<img class="w-100 berita-cover" src="' . esc_url($img_atr[0]) . '" alt="' . esc_attr(get_the_title()) . '" ' . ($nm == 1 ? 'fetchpriority="high"' : 'loading="lazy"') . '>';
                                                 } else {
                                                     echo '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 60 60" style="background-color: #ececec;width: 100%;height: auto;enable-background:new 0 0 60 60;" xml:space="preserve" width="' . $width . '" height="' . $height . '"><g><g><path d="M55.201,15.5h-8.524l-4-10H17.323l-4,10H12v-5H6v5H4.799C2.152,15.5,0,17.652,0,20.299v29.368   C0,52.332,2.168,54.5,4.833,54.5h50.334c2.665,0,4.833-2.168,4.833-4.833V20.299C60,17.652,57.848,15.5,55.201,15.5z M8,12.5h2v3H8   V12.5z M58,49.667c0,1.563-1.271,2.833-2.833,2.833H4.833C3.271,52.5,2,51.229,2,49.667V20.299C2,18.756,3.256,17.5,4.799,17.5H6h6   h2.677l4-10h22.646l4,10h9.878c1.543,0,2.799,1.256,2.799,2.799V49.667z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#5F7D95"/><path d="M30,14.5c-9.925,0-18,8.075-18,18s8.075,18,18,18s18-8.075,18-18S39.925,14.5,30,14.5z M30,48.5c-8.822,0-16-7.178-16-16   s7.178-16,16-16s16,7.178,16,16S38.822,48.5,30,48.5z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#5F7D95"/><path d="M30,20.5c-6.617,0-12,5.383-12,12s5.383,12,12,12s12-5.383,12-12S36.617,20.5,30,20.5z M30,42.5c-5.514,0-10-4.486-10-10   s4.486-10,10-10s10,4.486,10,10S35.514,42.5,30,42.5z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#5F7D95"/><path d="M52,19.5c-2.206,0-4,1.794-4,4s1.794,4,4,4s4-1.794,4-4S54.206,19.5,52,19.5z M52,25.5c-1.103,0-2-0.897-2-2s0.897-2,2-2   s2,0.897,2,2S53.103,25.5,52,25.5z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#5F7D95"/></g></g> </svg>';
                                                 } ?>
@@ -98,18 +98,10 @@ $container = velocitytheme_option('justg_container_type', 'container');
                     ?>
 
                     <?php
-                    $post1_title    = velocitytheme_option('title_posts_home_1', 'Recent Posts');
-                    $post1_cat      = velocitytheme_option('cat_posts_home_1');
+                    $post1_cat      = velocity_berita14_kategori('posts_home_1');
                     ?>
                     <div class="part_posts_home_1">
-                        <h3 class="home-title d-flex align-items-center justify-content-between">
-                            <span><?php echo $post1_title; ?></span>
-                            <?php if ($post1_cat && $post1_cat !== 'disable') : ?>
-                                <a class="btn btn-sm py-0 text-white px-1" href="<?php echo get_tag_link($post1_cat); ?>">
-                                    <i class="fa fa-rss"></i>
-                                </a>
-                            <?php endif; ?>
-                        </h3>
+                        <?php velocity_berita14_kepala_blok('posts_home_1'); ?>
                         <div class="part-post-home-1">
                             <?php
                             $post1_args = array(
@@ -124,18 +116,10 @@ $container = velocitytheme_option('justg_container_type', 'container');
                     </div>
 
                     <?php
-                    $post2_title    = velocitytheme_option('title_posts_home_2', 'Recent Posts');
-                    $post2_cat      = velocitytheme_option('cat_posts_home_2');
+                    $post2_cat      = velocity_berita14_kategori('posts_home_2');
                     ?>
                     <div class="part_posts_home_2 py-2">
-                        <h3 class="home-title d-flex align-items-center justify-content-between">
-                            <span><?php echo $post2_title; ?></span>
-                            <?php if ($post2_cat && $post2_cat !== 'disable') : ?>
-                                <a class="btn btn-sm py-0 text-white px-1" href="<?php echo get_tag_link($post2_cat); ?>">
-                                    <i class="fa fa-rss"></i>
-                                </a>
-                            <?php endif; ?>
-                        </h3>
+                        <?php velocity_berita14_kepala_blok('posts_home_2'); ?>
                         <div class="part-post-home-2 pt-2">
                             <?php
                             $post2_args = array(
@@ -152,18 +136,10 @@ $container = velocitytheme_option('justg_container_type', 'container');
                             <div class="col-md-6 px-1">
 
                                 <?php
-                                $post3_title    = velocitytheme_option('title_posts_home_3', 'Recent Posts');
-                                $post3_cat      = velocitytheme_option('cat_posts_home_3');
+                                $post3_cat      = velocity_berita14_kategori('posts_home_3');
                                 ?>
                                 <div class="part_posts_home_3">
-                                    <h3 class="home-title d-flex align-items-center justify-content-between">
-                                        <span><?php echo $post3_title; ?></span>
-                                        <?php if ($post3_cat && $post3_cat !== 'disable') : ?>
-                                            <a class="btn text-white btn-sm py-0 px-1" href="<?php echo get_tag_link($post3_cat); ?>">
-                                                <i class="fa fa-rss"></i>
-                                            </a>
-                                        <?php endif; ?>
-                                    </h3>
+                                    <?php velocity_berita14_kepala_blok('posts_home_3'); ?>
                                     <div class="part-post-home-3">
                                         <?php
                                         $post3_args = array(
@@ -178,18 +154,10 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                 </div>
 
                                 <?php
-                                $post4_title    = velocitytheme_option('title_posts_home_4', 'Recent Posts');
-                                $post4_cat      = velocitytheme_option('cat_posts_home_4');
+                                $post4_cat      = velocity_berita14_kategori('posts_home_4');
                                 ?>
                                 <div class=" part_posts_home_4 py-2 px-1">
-                                    <h3 class="home-title d-flex align-items-center justify-content-between">
-                                        <span><?php echo $post4_title; ?></span>
-                                        <?php if ($post4_cat && $post4_cat !== 'disable') : ?>
-                                            <a class="btn btn-sm py-0 text-white px-1" href="<?php echo get_tag_link($post4_cat); ?>">
-                                                <i class="fa fa-rss"></i>
-                                            </a>
-                                        <?php endif; ?>
-                                    </h3>
+                                    <?php velocity_berita14_kepala_blok('posts_home_4'); ?>
                                     <div class="part-post-home-4 py-2 px-1">
                                         <?php
                                         $post4_args = array(
@@ -216,18 +184,10 @@ $container = velocitytheme_option('justg_container_type', 'container');
                             </div>
                             <div class="col-md-6 px-1">
                                 <?php
-                                $post5_title    = velocitytheme_option('title_posts_home_5', 'Recent Posts');
-                                $post5_cat      = velocitytheme_option('cat_posts_home_5');
+                                $post5_cat      = velocity_berita14_kategori('posts_home_5');
                                 ?>
                                 <div class="part_posts_home_5">
-                                    <h3 class="home-title d-flex align-items-center justify-content-between">
-                                        <span><?php echo $post5_title; ?></span>
-                                        <?php if ($post5_cat && $post5_cat !== 'disable') : ?>
-                                            <a class="btn btn-sm py-0 text-white px-1" href="<?php echo get_tag_link($post5_cat); ?>">
-                                                <i class="fa fa-rss"></i>
-                                            </a>
-                                        <?php endif; ?>
-                                    </h3>
+                                    <?php velocity_berita14_kepala_blok('posts_home_5'); ?>
                                     <div class="part-post-home-5 pt-2">
                                         <div class="col-posts">
                                             <?php
@@ -246,17 +206,9 @@ $container = velocitytheme_option('justg_container_type', 'container');
 
                         <div class="part_posts_home_6">
                             <?php
-                            $post6_title    = velocitytheme_option('title_posts_home_6', 'Recent Posts');
-                            $post6_cat      = velocitytheme_option('cat_posts_home_6');
+                            $post6_cat      = velocity_berita14_kategori('posts_home_6');
                             ?>
-                            <h3 class="home-title d-flex align-items-center justify-content-between">
-                                <span><?php echo $post6_title; ?></span>
-                                <?php if ($post6_cat && $post6_cat !== 'disable') : ?>
-                                    <a class="btn btn-sm text-white py-0 px-1" href="<?php echo get_tag_link($post6_cat); ?>">
-                                        <i class="fa fa-rss"></i>
-                                    </a>
-                                <?php endif; ?>
-                            </h3>
+                            <?php velocity_berita14_kepala_blok('posts_home_6'); ?>
                             <div class="row m-0">
                                 <div class="col-md-6 px-1">
                                     <div class="part-post-home-6">
@@ -283,6 +235,7 @@ $container = velocitytheme_option('justg_container_type', 'container');
                                 </div>
                             </div>
                         </div>
+                    </div><!-- .part-home -->
                 </main><!-- #main -->
             </div>
             <!-- Do the right sidebar check. -->

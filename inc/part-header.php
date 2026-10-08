@@ -5,9 +5,9 @@
                 <?php
                 $sosmed = ['facebook', 'twitter', 'instagram', 'youtube'];
                 foreach ($sosmed as $key) {
-                    $datalink  = velocitytheme_option('link_sosmed_' . $key);
+                    $datalink  = get_theme_mod('link_sosmed_' . $key, '');
                     if ($datalink) {
-                        echo '<a class="btn btn-sm btn-' . $key . ' ms-1 text-white" href="' . $datalink . '" target="_blank"><i class="fa fa-' . $key . '"></i></a>';
+                        echo '<a class="btn btn-sm btn-' . $key . ' ms-1 text-white" href="' . esc_url($datalink) . '" target="_blank" rel="noopener" aria-label="' . esc_attr(ucfirst($key)) . '"><i class="fa fa-' . $key . '"></i></a>';
                     }
                 }
                 ?>
